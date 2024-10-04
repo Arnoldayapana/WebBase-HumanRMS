@@ -1,0 +1,171 @@
+/* General Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #003c3c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0 1.5rem;
+}
+
+.header ul {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+}
+
+.header ul li {
+    padding: 0.5rem 1.5rem;
+}
+
+.header ul li a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Title Styles */
+.title-container {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.title-container h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #343a40;
+}
+
+/* Login Form Styles */
+.login-form-container {
+    background: #fff;
+    padding: 70px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 5rem;
+    height: 350px;
+}
+
+/* Floating Placeholder Styles */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 25px;
+    border: 1px solid #ced4da; /* Light gray border */
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+    transform: translateY(-50%);
+    color: #6c757d; /* Bootstrap's text-muted color */
+    pointer-events: none;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+    top: -0.75rem;
+    font-size: 0.875rem; /* Slightly smaller font size */
+    color: #003c3c; /* Updated color */
+}
+
+.form-group input:focus {
+    border-color: #003c3c;
+    box-shadow: 0 0 5px rgba(0, 60, 60, 0.5);
+}
+
+.form-group input::placeholder {
+    color: transparent; /* Hide the placeholder text */
+}
+
+/* Placeholder styles when floating */
+.form-group input:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label {
+    top: 1.25rem; /* Adjusted for better spacing */
+    font-size: 14px; /* Updated font size */
+    color: #003c3c; /* Updated color */
+}
+
+/* Password Field Styles */
+.input-group .form-control-password {
+    padding-right: 3rem;
+}
+
+.input-group .input-group-text i {
+    color: #003c3c;
+}
+
+/* Button Styles */
+.btn-login {
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #003c3c;
+    color: #fff;
+    border: none;
+    transition: background 0.3s ease;
+    width: 100%;
+}
+
+.btn-login:hover {
+    background: #004f4f;
+}
+
+.forgot-password {
+    font-size: 0.9rem;
+    color: #003c3c;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    color: #004f4f;
+}
+
+/* Logo Styles */
+.logo-container {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.logo-container img {
+    width: 100px;
+    height: auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .title-container h1 {
+        font-size: 2rem;
+    }
+
+    .login-form-container {
+        padding: 20px;
+    }
+}

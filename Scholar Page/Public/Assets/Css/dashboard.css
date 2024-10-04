@@ -1,0 +1,63 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.dashboard-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.dashboard-card h5 {
+    color: #003c3c;
+}
+
+.section-title {
+    color: #003c3c;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.welcome-message {
+    font-size: 1.5rem;
+    color: #003c3c;
+    padding: 14px 30px; /* Set top/bottom padding to 14px and left/right padding to 30px */
+}
+
+.card-title {
+    color: #003c3c;
+}
+
+.announcement {
+    background-color: #C2EEFF;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.event-calendar {
+    height: 200px;
+    background-color: #eaeaea;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.btn-custom {
+    background-color: #003c3c;
+    color: white;
+}
+
+.btn-custom:hover {
+    background-color: #005f5f;
+}
+
+.flex-align {
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+    height: 100%; /* Ensures the container takes full height */
+}
