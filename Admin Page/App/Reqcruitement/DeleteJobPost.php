@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                <h5 class="modal-title fs-5 fw-bold" id="deleteModalLabel">Delete Jobpost ?</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -12,11 +12,11 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
                 <form id="deleteForm" method="POST" action="../Dao/Reqcruitement/DeleteJobPost_db.php">
                     <!-- Use hidden input to pass job_id -->
                     <input type="hidden" id="job_id" name="job_id" value="">
-                    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </div>
         </div>

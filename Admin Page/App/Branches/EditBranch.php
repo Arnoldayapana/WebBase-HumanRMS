@@ -1,11 +1,9 @@
 <?php
 // Connections
 include("../../../Database/db.php");
+
 $branch_id = "";
 $name = "";
-$location = "";
-
-
 $errorMessage = "";
 $successMessage = "";
 
@@ -17,9 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     $branch_id = $_GET["branch_id"];
 
-    //read the row of the selected data
-    $sql = "SELECT * FROM `branches` WHERE branch_id = $branch_id";
-    $result = $connection->query($sql);
+    // Read the row of the selected data
+    $sql = "SELECT * FROM `branches` WHERE branch_id = ?";
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("i", $branch_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
     $row = $result->fetch_assoc();
 
     if (!$row) {
@@ -28,30 +29,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
 
     $name = $row["name"];
-    $location = $row["location"];
 } else {
-    //Update the data go the branch
+    // Update the data for the branch
     $branch_id = $_POST['branch_id'];
     $name = $_POST['name'];
-    $location = $_POST['location'];
 
-    do {
-        if (empty($branch_id) || empty($name) || empty($location)) {
-            $errorMessage = "all the field are required";
-            break;
+    // Validation
+    if (empty($branch_id) || empty($name)) {
+        $errorMessage = "All fields are required.";
+    } else {
+        // Check if the branch name already exists (excluding the current branch being updated)
+        $checkSql = "SELECT * FROM `branches` WHERE name = ? AND branch_id != ?";
+        $stmt = $connection->prepare($checkSql);
+        $stmt->bind_param("si", $name, $branch_id);
+        $stmt->execute();
+        $checkResult = $stmt->get_result();
+
+        if ($checkResult->num_rows > 0) {
+            header("location:../View/Branch.php?error_msg=The branch name already exists!");
+            exit;
+        } else {
+            // Update branch data
+            $sql = "UPDATE branches SET name = ? WHERE branch_id = ?";
+            $stmt = $connection->prepare($sql);
+            $stmt->bind_param("si", $name, $branch_id);
+            $result = $stmt->execute();
+
+            if (!$result) {
+                $errorMessage = "Invalid query: " . $connection->error;
+            } else {
+                header("location:../View/Branch.php?msg=The branch name already exists!");
+                exit;
+            }
         }
-        $sql = "UPDATE branches SET name = '$name', location = '$location'" .
-            "WHERE branch_id = $branch_id";
-
-        $result = $connection->query($sql);
-
-        if (!$result) {
-            $errorMessage = "Invalid query: " . $connection->error;
-            break;
-        }
-
-        $successMessage = "Branch Updated Succefuly!";
-        header("location:../View/Branch.php");
-        exit;
-    } while (false);
+    }
 }

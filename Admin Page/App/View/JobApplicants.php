@@ -7,8 +7,8 @@ include('../../Core/Includes/header.php');
 
 // Handle department filter
 $applicantStatus = isset($_GET['status']) ? $_GET['status'] : '';
-
 ?>
+
 <div class="wrapper">
     <!--sidebar-->
     <?php
@@ -33,9 +33,9 @@ $applicantStatus = isset($_GET['status']) ? $_GET['status'] : '';
             <hr style="padding-bottom: 1.5rem;">
 
             <div class="d-flex mt">
-                <form action="../Applicants/SearchApplicants.php" method="GET">
+                <form id="searchForm" action="../Applicants/SearchApplicants.php" method="GET" onsubmit="return validateSearch()">
                     <div class="input-group mb-3">
-                        <input type="text" name="search" value="" class="form-control" placeholder="Search here!">
+                        <input type="text" name="search" value="" class="form-control" placeholder="Search here!" id="searchInput">
                         <button type="submit" class="btn btn-primary btn-md"><i class="bi bi-search"></i></button>
                     </div>
                 </form>
@@ -182,13 +182,12 @@ $applicantStatus = isset($_GET['status']) ? $_GET['status'] : '';
                                         </div>
                                     </div>
                                     <div class='modal-footer'>
-                                        <button type='button' class='btn btn-outline-secondary' data-bs-dismiss='modal'>Cancel</button>
+                                        <button type='button' class='btn btn-outline-secondary' data-bs-dismiss='modal'>Close</button>
                                     </div>
                                 </div>
                             </div>
                         </div>";
                     }
-
                     ?>
                 </tbody>
             </table>
@@ -201,11 +200,9 @@ $applicantStatus = isset($_GET['status']) ? $_GET['status'] : '';
 include("../Applicants/DeleteJobApplicant.php");
 ?>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-    crossorigin="anonymous"></script>
-<script src="../../Public/Assets/Js/AdminPage.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<!-- Scripts -->
+<?php include("../../Core/Includes/script.php"); ?>
 
 </body>
 

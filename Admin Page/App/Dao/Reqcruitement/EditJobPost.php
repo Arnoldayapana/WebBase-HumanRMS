@@ -5,7 +5,7 @@ $job_id = "";
 $title = "";
 $JobDescription = "";
 $qualification = "";
-$location = "";
+$branch = "";
 $min_salary = "";
 $max_salary = "";
 $EmployeeType = "";
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $title = $row["title"];
     $JobDescription = $row["JobDescription"];
     $qualification = $row["qualification"];
-    $location = $row["location"];
+    $branch = $row["branch"];
     $min_salary = $row["min_salary"];
     $max_salary = $row["max_salary"];
     $EmployeeType = $row["EmployeeType"];
@@ -42,17 +42,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $title = $_POST['title'];
     $JobDescription = $_POST['JobDescription'];
     $qualification = $_POST['qualification'];
-    $location = $_POST['location'];
+    $branch = $_POST['branch'];
     $min_salary = $_POST['min_salary'];
     $max_salary = $_POST['max_salary'];
     $EmployeeType = $_POST['EmployeeType'];
 
     do {
-        if (empty($job_id) || empty($title) || empty($JobDescription) || empty($qualification) || empty($location) || empty($min_salary) || empty($max_salary) || empty($EmployeeType)) {
+        if (empty($job_id) || empty($title) || empty($JobDescription) || empty($qualification) || empty($branch) || empty($min_salary) || empty($max_salary) || empty($EmployeeType)) {
             $errorMessage = "all the field are required";
             break;
         }
-        $sql = "UPDATE job SET title = '$title', JobDescription = '$JobDescription', qualification = '$qualification', location = '$location', min_salary = '$min_salary', max_salary = '$max_salary', EmployeeType = '$EmployeeType'" .
+        $sql = "UPDATE job SET title = '$title', JobDescription = '$JobDescription', qualification = '$qualification', branch = '$branch', min_salary = '$min_salary', max_salary = '$max_salary', EmployeeType = '$EmployeeType'" .
             "WHERE job_id = $job_id";
 
         $result = $connection->query($sql);

@@ -41,21 +41,20 @@ $successMessage = "";
             ?>
 
             <div class="container-fluid shadow p-3 mb-5 bg-body-tertiary rounded-4" my-4>
-                <br>
-                <h3>List Of Departments</h3>
+                <h3 class="fw-bold fs-4">List Of Departments</h3>
                 <hr>
                 <div class="row">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end px-6">
                         <form action="SearchDepartment.php" method="GET">
                             <div class="input-group mb-2">
                                 <input type="text" name="search" value="" class="form-control" placeholder="Search Department">
-                                <button type="submit" class="btn btn-primary">Search</button>
+                                <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
                             </div>
                         </form>
                         <div class="ms-auto me-3">
-                            <button type='button' class='btn btn-primary btn-md' data-bs-toggle='modal' data-bs-target='#CreateDepartment'>
-                                Create Department
-                            </button>
+                            <div class="ms-auto me-3">
+                                <a href="../View/Department.php" class='btn btn-md text-white' style="background-color: #003c3c;">Back</a>
+                            </div>
                         </div>
                     </div>
                 </div>

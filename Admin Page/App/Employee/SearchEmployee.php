@@ -88,7 +88,6 @@ $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
                                 <th>EMAIL</th>
                                 <th>DEPARTMENT</th>
                                 <th>CONTACT</th>
-                                <th>HIRE DATE</th>
                                 <th>OPERATIONS</th>
                             </tr>
                         </thead>
@@ -120,7 +119,7 @@ $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
                                 $modalId = "editEmployeeModal" . $row['employee_id'];
                                 $passwordFieldId = "password" . $row['employee_id'];
                                 $toggleIconId = "togglePasswordIcon" . $row['employee_id'];
-
+                                $ViewId = "viewEmployeeModal" . $row['employee_id'];
                                 echo "
                                 <tr>
                                     <td>{$row['employee_id']}</td>
@@ -128,8 +127,15 @@ $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
                                     <td>{$row['email']}</td>
                                     <td>{$row['department']}</td>
                                     <td>{$row['ContactNumber']}</td>
-                                    <td>{$row['hire_date']}</td>
                                     <td>
+
+
+                                        <!-- View Applicant Button -->
+                                        <button type='button' class='btn btn-warning btn-sm' data-bs-toggle='modal' 
+                                            data-bs-target='#$ViewId'>
+                                            <i class='bi bi-eye'></i>
+                                        </button>
+
                                         <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#$modalId'>
                                             <i class='bi bi-pencil-square'></i>
                                         </button>
@@ -206,6 +212,8 @@ $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
                                         </div>
                                     </td>
                                 </tr>";
+                                // View Modal for each applicant
+                                include('../Employee/ViewEmployeeModal.php');
                             }
                             ?>
                         </tbody>
@@ -218,7 +226,6 @@ $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
     <!-- Modal Add Employee-->
     <?php
     include("../Employee/AddEmployee.php");
-    include("../Employee/Emp.php");
     include("../../App/Employee/DeleteEmployee.php");
     ?>
 

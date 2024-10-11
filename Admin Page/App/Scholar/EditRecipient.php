@@ -7,6 +7,7 @@ $name = "";
 $email = "";
 $school = "";
 $contact = "";
+$branch = "";
 $GradeLevel = "";
 
 
@@ -35,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $email = $row["email"];
     $school = $row["school"];
     $contact = $row["contact"];
+    $branch = $row["branch"];
     $GradeLevel = $row["GradeLevel"];
 } else {
     //Update the data go the recipient
@@ -43,14 +45,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $email = $_POST['email'];
     $school = $_POST['school'];
     $contact = $_POST['contact'];
+    $branch = $_POST['branch'];
     $GradeLevel = $_POST['GradeLevel'];
 
     do {
-        if (empty($recipient_id) || empty($name) || empty($email) || empty($school) || empty($contact) || empty($GradeLevel)) {
+        if (empty($recipient_id) || empty($name) || empty($email) || empty($school) || empty($contact) || empty($GradeLevel) || empty($branch)) {
             $errorMessage = "all the field are required";
             break;
         }
-        $sql = "UPDATE recipient SET name = '$name', email = '$email', school = '$school', contact = '$contact', GradeLevel = '$GradeLevel'" .
+        $sql = "UPDATE recipient SET name = '$name', email = '$email', school = '$school', contact = '$contact', GradeLevel = '$GradeLevel' , branch = '$branch'" .
             "WHERE recipient_id = $recipient_id";
 
         $result = $connection->query($sql);

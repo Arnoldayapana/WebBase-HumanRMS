@@ -15,17 +15,6 @@
     <link rel="shortcut icon" href="../../Public/Images/SEDPfavicon.png" type="image/x-icon">
 
     <style>
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
-
         .modal-content {
             position: absolute;
             top: 50%;
@@ -35,16 +24,20 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            width: 600px;
         }
 
         .modal-content h5 {
             margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
         }
 
         .modal-content button {
             margin: 10px 0;
-            margin-right: 10px;
+        }
+
+        .wrapper {
+            height: 100vh;
         }
     </style>
 </head>
@@ -88,12 +81,12 @@
                         <span>Recruitment</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                <!--<li class="sidebar-item">
                     <a href="../../App/View/pastMember.php" class="sidebar-link">
                         <i class="bi bi-person-lock"></i>
                         <span>Past Member</span>
                     </a>
-                </li>
+                </li>-->
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
                         data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
@@ -120,16 +113,16 @@
                     </a>
                     <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
+                            <a href="../../App/View/Compliance.php" class="sidebar-link mx-4">Compliance</a>
+                        </li>
+                        <li class="sidebar-item">
                             <a href="../../App/View/recipients.php" class="sidebar-link mx-4">Scholars</a>
                         </li>
                         <li class="sidebar-item">
                             <a href="../../App/View/Program.php" class="sidebar-link mx-4">Programs</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="../../App/View/Compliance.php" class="sidebar-link mx-4">Compliance</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link mx-4">Requests</a>
+                            <a href="../../App/View/ScholarApplicant.php" class="sidebar-link mx-4">Scholar Applicants</a>
                         </li>
                     </ul>
                 </li>
@@ -143,11 +136,18 @@
         </aside>
     </div>
 
-    <div id="confirmationModal" class="modal-overlay">
-        <div class="modal-content">
+    <div id="confirmationModal" class="modal-overlay" style="display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;">
+        <div class="modal-content" style="width: 400px;">
             <h5>Are you sure you want to logout?</h5>
             <button class="btn btn-secondary" onclick="hideModal()">Cancel</button>
-            <a href="../../../index.php" class="btn btn-primary" id=" confirmLogout">Logout</a>
+            <a href="../../../login.php" class="btn" style="background: #003c3c; color: #fff; font-weight: 600;" id=" confirmLogout">Logout</a>
         </div>
     </div>
 

@@ -11,6 +11,7 @@ $email = "";
 $school = "";
 $contact = "";
 $GradeLevel = "";
+$brach = "";
 
 $errorMessage = "";
 $successMessage = "";
@@ -35,14 +36,14 @@ $successMessage = "";
             <?php
             include('../../Core/Includes/alertMessages.php');
             ?>
-            <h3>List Of Recipient</h3>
+            <h3 class="fw-bold fs-4">List Of Recipient</h3>
             <hr>
             <div class="row">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end px-6">
                     <form action="../Scholar/SearchRecipient.php" method="GET">
                         <div class="input-group mb-2">
                             <input type="text" name="search" value="" class="form-control" placeholder="Search Recipient">
-                            <button type="submit" class="btn btn-primary">Search</button>
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
                         </div>
                     </form>
                     <div class="ms-auto me-3">
@@ -59,6 +60,7 @@ $successMessage = "";
                         <th>#</th>
                         <th>NAME</th>
                         <th>EMAIL</th>
+                        <th>BRANCH</th>
                         <th>OPERATIONS</th>
                     </tr>
                 </thead>
@@ -84,6 +86,7 @@ $successMessage = "";
                             <td>$row[recipient_id]</td>
                             <td>$row[name]</td>
                             <td>$row[email]</td>
+                            <td>$row[branch]</td>
                             <td>
                                 <!-- Edit Button (Opens Modal) -->
                                     <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#$modalId'>
@@ -116,6 +119,27 @@ $successMessage = "";
                                                         <label for='contact' class='form-label'>Contact</label>
                                                         <input type='text' class='form-control' name='contact' value='{$row['contact']}' required>
                                                     </div>
+                                                    <div class='mb-2'>
+                                                            <label for='branch' class='form-label'>Branch</label>
+                                                             <select class='form-select' name='branch' required>
+                                                                <option value='' disabled>Select a branch</option>";
+
+                        // Fetch branchess from the database
+                        $sql_dept = "SELECT * FROM branches ORDER BY name ASC";
+                        $result_dept = $connection->query($sql_dept);
+
+                        if ($result_dept) {
+                            while ($dept_row = $result_dept->fetch_assoc()) {
+                                $selected = ($dept_row['name'] == $row['branches']) ? 'selected' : '';
+                                echo "<option value='{$dept_row['name']}' $selected>{$dept_row['name']}</option>";
+                            }
+                        } else {
+                            echo "<option value=''>Error loading branches</option>";
+                        }
+
+                        echo "
+                                                            </select> 
+                                                        </div>
                                                     <div class='mb-3'>
                                                         <label for='GradeLevel' class='form-label'>Grade Level</label>
                                                         <select class='form-select' name='GradeLevel' required>
@@ -138,8 +162,8 @@ $successMessage = "";
                                                     </div>
                                                 </div>
                                                 <div class='modal-footer'>
-                                                    <button type='button' class='btn btn-danger' data-bs-dismiss='modal'>Cancel</button>
-                                                    <button type='submit' class='btn btn-primary'>Save Changes</button>
+                                                    <button type='button' class='btn btn-outline-secondary me-2' data-bs-dismiss='modal'>Cancel</button>
+                                                    <button type='submit' class='btn btn-primary'>Update</button>
                                                 </div>
                                             </form>
                                         </div>

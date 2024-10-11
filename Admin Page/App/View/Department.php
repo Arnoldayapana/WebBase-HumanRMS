@@ -29,19 +29,19 @@ $location = "";
             <?php
             include('../../Core/Includes/alertMessages.php');
             ?>
-            <h3>List Of Departments</h3>
+            <h3 class="fw-bold fs-4">List Of Departments</h3>
             <hr>
             <div class="row">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end px-6">
-                    <form action="../Departments/SearchDepartment.php" method="GET">
+                    <form id="searchForm" action="../Departments/SearchDepartment.php" method="GET" onsubmit="return validateSearch()">
                         <div class="input-group mb-2">
                             <input type="text" name="search" value="" class="form-control" placeholder="Search Department">
-                            <button type="submit" class="btn btn-primary">Search</button>
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
                         </div>
                     </form>
                     <div class="ms-auto me-3">
                         <button type='button' class='btn btn-primary btn-md' data-bs-toggle='modal' data-bs-target='#CreateDepartment'>
-                            Create Department
+                            Add Department
                         </button>
                     </div>
                 </div>
@@ -102,7 +102,7 @@ $location = "";
                                                     </div>
                                                     <div class='modal-footer'>
                                                         <button type='button' class='btn btn-outline-secondary' data-bs-dismiss='modal'>Close</button>
-                                                        <button type='submit' class='btn btn-primary'>Save Changes</button>
+                                                        <button type='submit' class='btn btn-primary'>Update</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -130,10 +130,10 @@ include("../../App/Departments/CreateDepartment.php");
 include("../../App/Departments/DeleteDepartment.php");
 ?>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-    crossorigin="anonymous"></script>
-<script src="../../Public/Assets/Js/AdminPage.js"></script>
+<!-- Scripts -->
+<?php
+include("../../Core/Includes/script.php");
+?>
 </body>
 
 </html>

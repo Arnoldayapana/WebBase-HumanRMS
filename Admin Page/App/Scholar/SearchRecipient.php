@@ -39,14 +39,14 @@ include("../../../Database/db.php");
                 <?php
                 include('../../Core/Includes/alertMessages.php');
                 ?>
-                <h3>List Of Recipient</h3>
+                <h3 class="fw-bold fs-4">List Of Recipient</h3>
                 <hr>
                 <div class="row">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end px-6">
                         <form action="#" method="GET">
                             <div class="input-group mb-2">
                                 <input type="text" name="search" value="" class="form-control" placeholder="Search Recipient">
-                                <button type="submit" class="btn btn-primary">Search</button>
+                                <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
                             </div>
                         </form>
                         <div class="ms-auto me-3">
@@ -61,10 +61,7 @@ include("../../../Database/db.php");
                             <th>ID</th>
                             <th>NAME</th>
                             <th>EMAIL</th>
-                            <th>SCHOOL</th>
-                            <th>CONTACT</th>
-                            <th>GRADE LEVEL</th>
-                            <th>ADMISSION DATE</th>
+                            <th>BRANCH</th>
                             <th>OPERATIONS</th>
                         </tr>
                     </thead>
@@ -91,15 +88,13 @@ include("../../../Database/db.php");
                         //read data of each row
                         while ($row = $result->fetch_assoc()) {
                             $modalId = "editRecipient" . $row['recipient_id'];
+                            $ViewId = "viewRecipient" . $row['recipient_id'];
                             echo "
                         <tr>
                             <td>$row[recipient_id]</td>
                             <td>$row[name]</td>
                             <td>$row[email]</td>
-                            <td>$row[school]</td>
-                            <td>$row[contact]</td>
-                            <td>$row[GradeLevel]</td>
-                            <td>$row[admission_date]</td>
+                            <td>$row[branch]</td>
                             <td>
                                 <!-- Edit Button (Opens Modal) -->
                                     <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#$modalId'>
@@ -132,6 +127,27 @@ include("../../../Database/db.php");
                                                         <label for='contact' class='form-label'>Contact</label>
                                                         <input type='text' class='form-control' name='contact' value='{$row['contact']}' required>
                                                     </div>
+                                                    <div class='mb-2'>
+                                                            <label for='branch' class='form-label'>Branch</label>
+                                                             <select class='form-select' name='branch' required>
+                                                                <option value='' disabled>Select a branch</option>";
+
+                            // Fetch branchess from the database
+                            $sql_dept = "SELECT * FROM branches ORDER BY name ASC";
+                            $result_dept = $connection->query($sql_dept);
+
+                            if ($result_dept) {
+                                while ($dept_row = $result_dept->fetch_assoc()) {
+                                    $selected = ($dept_row['name'] == $row['branches']) ? 'selected' : '';
+                                    echo "<option value='{$dept_row['name']}' $selected>{$dept_row['name']}</option>";
+                                }
+                            } else {
+                                echo "<option value=''>Error loading branches</option>";
+                            }
+
+                            echo "
+                                                            </select> 
+                                                        </div>
                                                     <div class='mb-3'>
                                                         <label for='GradeLevel' class='form-label'>Grade Level</label>
                                                         <select class='form-select' name='GradeLevel' required>
@@ -167,8 +183,16 @@ include("../../../Database/db.php");
                                        data-bs-target='#DeleteRecipient' onclick='setRecipientIdForDelete($row[recipient_id])'>
                                       <i class='bi bi-trash'></i>
                                </button>
+
+                                <!-- View Button -->
+                                <button type='button' class='btn btn-warning btn-sm' data-bs-toggle='modal' 
+                                       data-bs-target='#$ViewId' onclick='setRecipientIdForView($row[recipient_id])'>
+                                      <i class='bi bi-eye'></i>
+                               </button>
                             </td>
                         </tr>";
+                            // View Modal for each applicant
+                            include('ViewRecipientsModal.php');
                         }
                         ?>
                     </tbody>

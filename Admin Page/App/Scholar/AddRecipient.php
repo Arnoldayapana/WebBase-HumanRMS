@@ -29,6 +29,10 @@
                                 <input type=" number" class="form-control" name="contact" value="<?php echo $contact; ?>">
                             </div>
                             <div class="form-group mb-2">
+                                <label class="col-sm-6 col-form-label">Branch</label>
+                                <input type=" number" class="form-control" name="contact" value="<?php echo $branch; ?>">
+                            </div>
+                            <div class="form-group mb-2">
                                 <label class="col col-form-label">GradeLevel</label>
                                 <select class="form-select" name="GradeLevel" required>
                                     <option value="">Select</option>

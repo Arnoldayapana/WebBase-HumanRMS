@@ -1,45 +1,41 @@
 <?php
-//connections
+// connection
 include("../../../../Database/db.php");
 
 $name = "";
-$location = "";
-
-$errorMessage = "";
-$successMessage = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '';
-    $location = isset($_POST['location']) ? htmlspecialchars($_POST['location']) : '';
+    // Sanitize inputs
+    $name = isset($_POST['name']) ? htmlspecialchars(trim($_POST['name'])) : '';
 
-    $check_name = mysqli_query($connection, "SELECT * FROM branches WHERE name ='$name'");
-    if (mysqli_num_rows($check_name) > 0) {
-        $errorMessage = "The Branch name is already exists!";
-        header("Location: ../../View/Branch.php");
-        exit;
+    // Check if the department name already exists
+    if (empty($name)) {
+        $errorMessage = "All fields are required!";
+        header("Location: ../../View/Branch.php?error_msg=$errorMessage");
     } else {
-        do {
-            if (empty($name) || empty($location)) {
-                $errorMessage = "all the field are required";
-                break;
-            }
-            //add new client to database
-            $sql = "INSERT INTO branches (name, location) 
-                    VALUES ('$name','$location')";
-            $result = $connection->query($sql);
+        // Use a prepared statement to prevent SQL injection
+        $stmt = $connection->prepare("SELECT * FROM branches WHERE name = ?");
+        $stmt->bind_param("s", $name);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
+        if ($result->num_rows > 0) {
+            header("Location: ../../View/Branch.php?error_msg='The Branche name already exists!");
+        } else {
+            // Add new department to the database using a prepared statement
+            $stmt = $connection->prepare("INSERT INTO branches (name) VALUES (?)");
+            $stmt->bind_param("s", $name);
+            $result = $stmt->execute();
 
             if (!$result) {
                 $errorMessage = "Invalid query: " . $connection->error;
-                break;
+            } else {
+                // Clear the form values and show success message
+                $name = "";
+                header("Location: ../../View/Branch.php?msg=New Branch created successfully!");
+                exit;  // Ensure the script stops execution after redirect
             }
-
-            $name = "";
-            $location = "";
-
-            $successMessage = "New Branch created successfuly!";
-            header("Location: ../../View/Branch.php");
-            exit;
-        } while (false);
+        }
+        $stmt->close(); // Close the statement
     }
 }

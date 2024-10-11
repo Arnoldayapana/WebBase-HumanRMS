@@ -116,14 +116,16 @@
                                 <h5 class='card-title'><i class='bi bi-briefcase-fill'></i> {$row['title']}</h5>
                                 <p class='card-text mx-2'><i class='bi bi-card-checklist'></i> Responsibilities: {$row['JobDescription']}</p>
                                 <p class='card-text mx-2'><i class='bi bi-clipboard-check'></i> Requirements: {$row['qualification']}</p>
-                                <button type='button' class='btn btn-md text-white' style='background-color: #003c3c;' 
-                                    data-bs-toggle='modal' data-bs-target='#JobApplicant' onclick='setJobApplicant({$row['job_id']})'>
-                                    Apply
-                                </button>
-                                <button type='button' class='btn btn-info btn-md' data-bs-toggle='modal' 
-                                    data-bs-target='#$ViewJobId' onclick='setJobApplicant({$row['job_id']})'>
-                                    View
-                                </button>
+                                    <div class='d-flex flex-row-reverse'>
+                                        <button type='button' class='btn btn-md text-white mx-2' style='background-color: #003c3c;' 
+                                            data-bs-toggle='modal' data-bs-target='#JobApplicant' onclick='setJobApplicant({$row['job_id']})'>
+                                            Apply
+                                        </button>
+                                        <button type='button' class='btn btn-info btn-md' data-bs-toggle='modal' 
+                                            data-bs-target='#$ViewJobId' onclick='setJobApplicant({$row['job_id']})'>
+                                            View
+                                        </button>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -156,7 +158,7 @@
                                         </div>
                                         <div class='col-md-6'>
                                             <h6 class='fw-semi-bold fs-5'>Job Designation Location:</h6>
-                                            <p class='mx-3'>{$row['location']}</p>
+                                            <p class='mx-3'>{$row['branch']}</p>
                                         </div>
                                         <div class='col-md-6'>
                                             <h6 class='fw-semi-bold fs-5'>Job Employment Type:</h6>

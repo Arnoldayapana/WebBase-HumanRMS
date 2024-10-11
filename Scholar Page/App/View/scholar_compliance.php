@@ -7,8 +7,8 @@ include('../../Core/Includes/header.php');
 <div class="main-container shadow-sm p-2">
 
     <div class="container" style="margin-top: 6rem;">
-        <i class="fa-solid fa-angle-left" style="font-size: 20px; color: #003c3c; padding-bottom: 20px;
-"> <span style="font-family: 'Roboto', sans-serif; ">Requirements Compliance</span></i>
+        <a href="scholar_home.php"><i class="fa-solid fa-angle-left" style="font-size: 20px; color: #003c3c; padding-bottom: 20px;
+"> <span style="font-family: 'Roboto', sans-serif; ">Requirements Compliance</span></i></a>
 
         <div class="d-flex align-items-center mb-4 shadow p-5 bg-body rounded">
             <div class="text-center me-4">

@@ -48,7 +48,7 @@ include('../../Core/Includes/header.php');
                                             <h5 class="card-title fw-bold">Load expenses</h5>
                                             <p class="card-text">Refer to costs incurred for mobile data, calls, and messaging services, typically for personal or business communication.</p>
                                             <div class="card-body">
-                                                <a href="#" class="btn btn-primary ">View more</a>
+                                                <a href="../Compliances/LoadExpenses.php" class="btn btn-primary ">View more</a>
                                             </div>
                                         </div>
                                     </div>
@@ -67,7 +67,7 @@ include('../../Core/Includes/header.php');
                                             <h5 class="card-title fw-bold">Book expenses</h5>
                                             <p class="card-text">Costs spent on purchasing or acquiring textbooks, reference materials, or other reading resources, often for educational purposes.</p>
                                             <div class="card-body">
-                                                <a href="#" class="btn btn-primary ">View more</a>
+                                                <a href="../Compliances/BookExpenses.php" class="btn btn-primary ">View more</a>
                                             </div>
                                         </div>
                                     </div>
@@ -85,7 +85,7 @@ include('../../Core/Includes/header.php');
                                             <h5 class="card-title fw-bold">Thesis Expenses</h5>
                                             <p class="card-text">The costs associated with research, materials, printing, and other resources needed to complete a thesis or academic project.</p>
                                             <div class="card-body">
-                                                <a href="#" class="btn btn-primary "> View more</a>
+                                                <a href="../Compliances/ThesisExpenses.php" class="btn btn-primary "> View more</a>
                                             </div>
                                         </div>
                                     </div>
@@ -103,7 +103,7 @@ include('../../Core/Includes/header.php');
                                             <h5 class="card-title fw-bold">Cert.of Reg.</h5>
                                             <p class="card-text ">Official document that verifies an individual's or entity's formal registration with a specific authority or organization, often required for legal, educational, or professional purposes.</p>
                                             <div class="card-body">
-                                                <a href="#" class="btn btn-primary ">View more.</a>
+                                                <a href="../Compliances/CertOfReg.php" class="btn btn-primary ">View more.</a>
                                             </div>
                                         </div>
                                     </div>
@@ -121,7 +121,7 @@ include('../../Core/Includes/header.php');
                                             <h5 class="card-title fw-bold">Cert.of Grade</h5>
                                             <p class="card-text">Official document that confirms a student's academic performance in a specific course or subject, detailing the grades or marks received.</p>
                                             <div class="card-body">
-                                                <a href="#" class="btn btn-primary ">View more</a>
+                                                <a href="../Compliances/CertOfGrade.php" class="btn btn-primary ">View more</a>
                                             </div>
                                         </div>
                                     </div>

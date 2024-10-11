@@ -46,84 +46,58 @@ include('../../../Database/db.php');
             <div class="section">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 mb-3 overflow-hidden shadow " style="border-radius: 5px;">
+                        <div class="col-lg-6 col-md-6 col-sm-6 mb-3 overflow-hidden shadow-lg " style="border-radius: 5px;">
                             <div id="donutchart" style="width: 680px; height: 360px;"></div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 mb-3">
-                            <div class="card border-0 shadow">
-                                <div class="card-body">
-                                    <h5 class="card-title ms-2" style="font-weight: bold;">Upcoming Interview</h5>
-                                    <ul class="list-group list-group-flush">
-                                        <!-- First Interview -->
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <small class="text-muted ms-4">09/06/24 - 9:30 am</small>
-                                            </div>
-                                            <div class="d-flex align-items-center flex-grow-1 ms-5">
-                                                <img src="../../Public/Assets/Images/profile.jpg" alt="Applicant Photo" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;">
-                                                <div>
-                                                    <strong class="d-block text-truncate" style="max-width: 150px;">Juasssssssn Tamad</strong>
-                                                    <small class="text-muted">Job applicant</small>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <i class="bi bi-three-dots-vertical"></i>
-                                            </div>
-                                        </li>
-                                        <!-- Second Interview -->
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <small class="text-muted ms-4">09/06/24 - 3:30 pm</small>
-                                            </div>
-                                            <div class="d-flex align-items-center flex-grow-1 ms-5">
-                                                <img src="../../Public/Assets/Images/profile.jpg" alt="Applicant Photo" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;">
-                                                <div>
-                                                    <strong class="d-block text-truncate" style="max-width: 150px;">Sarah Cruz</strong>
-                                                    <small class="text-muted">Job applicant</small>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <i class="bi bi-three-dots-vertical"></i>
-                                            </div>
-                                        </li>
-                                        <!-- Third Interview -->
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <small class="text-muted ms-4">09/06/24 - 3:30 pm</small>
-                                            </div>
-                                            <div class="d-flex align-items-center flex-grow-1 ms-5">
-                                                <img src="../../Public/Assets/Images/profile.jpg" alt="Applicant Photo" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;">
-                                                <div>
-                                                    <strong class="d-block text-truncate" style="max-width: 150px;">ans Cruz</strong>
-                                                    <small class="text-muted">Scholar applicant</small>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <i class="bi bi-three-dots-vertical"></i>
-                                            </div>
-                                        </li>
-                                        <!-- Fourth Interview -->
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center">
-                                                <small class="text-muted ms-4">09/06/24 - 3:30 pm</small>
-                                            </div>
-                                            <div class="d-flex align-items-center flex-grow-1 ms-5">
-                                                <img src="../../Public/Assets/Images/profile.jpg" alt="Applicant Photo" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;">
-                                                <div>
-                                                    <strong class="d-block text-truncate" style="max-width: 150px;">Hssans Cruz</strong>
-                                                    <small class="text-muted">Scholar applicant</small>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <i class="bi bi-three-dots-vertical"></i>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="mt-3 text-end">
-                                        <a href="#" class="text-primary">view more.</a>
+                        <?php
+                        include '../Dashboard/Anouncement.php';
+                        ?>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Applicant Cards-->
+            <div class="col-lg-6 col-md-6 col-sm-6 mb-3">
+                <div class="card border-0 shadow">
+                    <div class="card-body">
+                        <h6 class="card-title ms-2" style="font-weight: bold;">Upcoming Interview</h6>
+                        <ul class="list-group list-group-flush">
+                            <!-- First Interview -->
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <small class="text-muted ms-4">09/06/24 - 9:30 am</small>
+                                </div>
+                                <div class="d-flex align-items-center flex-grow-1 ms-5">
+                                    <img src="../../Public/Assets/Images/profile.jpg" alt="Applicant Photo" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;">
+                                    <div>
+                                        <strong class="d-block text-truncate" style="max-width: 150px;">Juasssssssn Tamad</strong>
+                                        <small class="text-muted">Job applicant</small>
                                     </div>
                                 </div>
-                            </div>
+                                <div>
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </div>
+                            </li>
+                            <!-- Second Interview -->
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <small class="text-muted ms-4">09/06/24 - 3:30 pm</small>
+                                </div>
+                                <div class="d-flex align-items-center flex-grow-1 ms-5">
+                                    <img src="../../Public/Assets/Images/profile.jpg" alt="Applicant Photo" class="rounded-circle" style="width: 40px; height: 40px; margin-right: 10px;">
+                                    <div>
+                                        <strong class="d-block text-truncate" style="max-width: 150px;">Sarah Cruz</strong>
+                                        <small class="text-muted">Job applicant</small>
+                                    </div>
+                                </div>
+                                <div>
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="mt-2 text-end">
+                            <a href="#" class="text-primary">view more.</a>
                         </div>
                     </div>
                 </div>

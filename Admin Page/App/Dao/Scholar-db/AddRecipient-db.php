@@ -8,6 +8,7 @@ $email = "";
 $school = "";
 $contact = "";
 $GradeLevel = "";
+$branch = "";
 
 $errorMessage = "";
 $successMessage = "";
@@ -17,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $school = $_POST['school'];
     $contact = $_POST['contact'];
+    $branch = $_POST['branch'];
     $GradeLevel = $_POST['GradeLevel'];
 
     // Check if email already exists
@@ -25,14 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errorMessage = "The Email already exists!";
     } else {
         do {
-            if (empty($name) || empty($email) || empty($school) || empty($contact) || empty($GradeLevel)) {
+            if (empty($name) || empty($email) || empty($school) || empty($contact) || empty($GradeLevel) || empty($branch)) {
                 $errorMessage = "All fields are required";
                 break;
             }
 
             // Insert new employee into the database
-            $sql = "INSERT INTO recipient (name, email, school, contact, GradeLevel) 
-                    VALUES ('$name','$email','$school','$contact','$GradeLevel')";
+            $sql = "INSERT INTO recipient (name, email, school, contact, GradeLevel , branch) 
+                    VALUES ('$name','$email','$school','$contact','$GradeLevel' ,'$brach')";
             $result = $connection->query($sql);
 
             if (!$result) {
@@ -45,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $email = "";
             $school = "";
             $contact = "";
+            $brach = "";
             $GradeLevel = "";
 
             $successMessage = "New Employee added successfully!";

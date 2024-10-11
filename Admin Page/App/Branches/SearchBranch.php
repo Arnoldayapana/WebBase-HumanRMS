@@ -28,20 +28,18 @@
 
             <div class="container-fluid shadow p-3 mb-5 bg-body-tertiary rounded-4" my-4>
                 <br>
-                <h3>List Of Branches</h3>
+                <h3 class="fw-bold fs-4">List Of Branch</h3>
                 <hr>
                 <div class="row">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end px-6">
-                        <form action="../models/branch/search-branch.php" method="GET">
+                        <form action="#" method="GET">
                             <div class="input-group mb-2">
                                 <input type="text" name="search" value="" class="form-control" placeholder="Search Branch">
-                                <button type="submit" class="btn btn-primary">Search</button>
+                                <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
                             </div>
                         </form>
                         <div class="ms-auto me-3">
-                            <button type='button' class='btn btn-primary btn-md' data-bs-toggle='modal' data-bs-target='#CreateBranch'>
-                                Create Branch
-                            </button>
+                            <a href="../View/Branch.php" class='btn btn-md text-white' style="background-color: #003c3c;">Back</a>
                         </div>
                     </div>
                 </div>
@@ -51,7 +49,6 @@
                         <tr>
                             <th>ID</th>
                             <th>NAME</th>
-                            <th>LOCATION</th>
                             <th>CREATED DATE</th>
                             <th>OPERATIONS</th>
                         </tr>
@@ -66,9 +63,9 @@
                         // Prepare SQL query
                         if (!empty($search)) {
                             $searchTerm = $connection->real_escape_string($search);
-                            $sql = "SELECT * FROM branches WHERE name LIKE '%$searchTerm%' ORDER BY branch_id DESC";
+                            $sql = "SELECT * FROM branches WHERE name LIKE '%$searchTerm%' ORDER BY branch_id ASC";
                         } else {
-                            $sql = "SELECT * FROM branches ORDER BY branch_id DESC";
+                            $sql = "SELECT * FROM branches ORDER BY branch_id ASC";
                         }
 
                         $result = $connection->query($sql);
@@ -83,7 +80,6 @@
                         <tr>
                             <td>$row[branch_id]</td>
                             <td>$row[name]</td>
-                            <td>$row[location]</td>
                             <td>$row[created_date]</td>
                             <td>
                                 <!-- Edit Button (Opens Modal) -->
@@ -108,15 +104,10 @@
                                                             <input type='text' class='form-control' name='name' value='$row[name]' required>
                                                         </div>
 
-                                                        <div class='mb-3'>
-                                                            <label for='location' class='form-label'>Location</label>
-                                                            <input type='text' class='form-control' name='location' value='$row[location]' required>
-                                                        </div>
-
                                                     </div>
                                                     <div class='modal-footer'>
-                                                        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
-                                                        <button type='submit' class='btn btn-primary'>Save Changes</button>
+                                                        <button type='button' class='btn btn-outline-secondary' data-bs-dismiss='modal'>Close</button>
+                                                        <button type='submit' class='btn btn-primary'>Update</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -141,14 +132,13 @@
     </div>
     <!-- Modal Add branch-->
     <?php
-    include("./CreateBranche.php");
     include("./DeleteBranch.php");
     ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
-    <script src="../../Public/Assets/Js/AdminPage.js"></script>
+    <!-- Scripts -->
+    <?php
+    include("../../Core/Includes/script.php");
+    ?>
 </body>
 
 </html>

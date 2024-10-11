@@ -35,10 +35,9 @@ include('./Database/login.php');
 
         <body>
             <div class="login-background">
-                <div class="header">
-                    <?php include('./Scholar Page/Core/Includes/svg.php'); ?>
+                <div class="header d-flex flex-row-reverse">
                     <ul>
-                        <li><a href="./Scholar Page/App/ScholarshipCriteria.php">SCHOLARSHIP</a></li>
+                        <li><a href="Scholar Page/App/scholarship-criteria.php">SCHOLARSHIP</a></li>
                         <li><a href="./JobPage/Jobpage.php">JOB</a></li>
                         <li><a href="#">ABOUT</a></li>
                     </ul>

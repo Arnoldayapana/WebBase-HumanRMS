@@ -25,18 +25,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Step 4: Reset the AUTO_INCREMENT value
             $sql_reset_ai = "ALTER TABLE branches AUTO_INCREMENT = 1";
             $connection->query($sql_reset_ai);
-
-            // Optional: Add a success message
-            $successMessage = "Branch deleted and IDs renumbered successfully.";
         } else {
-            $errorMessage = "Failed to delete the branch.";
+            header("location:../../View/Branch.php?error_msg=Failed to delete Branch!");
         }
 
         $stmt->close();
         $connection->close();
 
-        // Redirect back to branch.php
-        header("location:../../View/Branch.php");
+        // Redirect back to Branch.php
+        header("location:../../View/Branch.php?msg=Branch deleted successfully!");
         exit;
     }
 }

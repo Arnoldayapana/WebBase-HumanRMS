@@ -42,13 +42,13 @@
                     <li class="breadcrumb-item active" aria-current="page">Job-Offers</li>
                 </ol>
                 <div class="ms-auto m-2">
-                    <a href="./Form/SEDP-Employee Form.docx" class="btn text-white fw-500" style="background-color: #003c3c;">Download File</a>
+                    <a href="./Form/SEDP-Employee Form.docx" class="btn text-white fw-500" style="background-color: #003c3c;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">Download File</a>
                 </div>
 
             </nav>
             <div class="text-center pt-2">
                 <h1 class="fw-bold fs-3 fs-sm-5">Join Our Team and Shape the Future with Us!</h1>
-                <img src="../Assets/Images/hiring.webp" alt="Hiring Image" class="img-fluid rounded shadow my-4" style="height: auto; width: 700px;">
+                <img src="../Assets/Images/hiring.png" alt="Hiring Image" class="img-fluid rounded shadow my-4" style="height: auto; width: 700px;">
                 <p class="lead text-muted p-2 m-2 my-5 mx-5">
                     At <span class="fs-4 fw-bold">SEDP Simbag Sa Pag-Asenso Inc</span>, we foster talent, embrace innovation, and drive success.
                     Join us today and be part of a company that values and invests in your future.
@@ -85,8 +85,8 @@
                                 <h5 class='card-title'><i class='bi bi-briefcase-fill'></i> {$row['title']}</h5>
                                 <p class='card-text mx-2'><i class='bi bi-card-checklist'></i> Responsibilities: {$row['JobDescription']}</p>
                                 <p class='card-text mx-2'><i class='bi bi-clipboard-check'></i> Requirements: {$row['qualification']}</p>
-                
-                                <button type='button' class='btn btn-md text-white' style='background-color: #003c3c;' 
+                                <div class='d-flex flex-row-reverse'>
+                                <button type='button' class='btn btn-md text-white mx-2' style='background-color: #003c3c;' 
                                     data-bs-toggle='modal' data-bs-target='#JobApplicant' onclick='setJobApplicant({$row['job_id']})'>
                                     Apply
                                 </button>
@@ -94,6 +94,7 @@
                                     data-bs-target='#$ViewJobId' onclick='setJobApplicant({$row['job_id']})'>
                                     View
                                 </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -126,7 +127,7 @@
                                             </div>
                                             <div class='col-md-6'>
                                                 <h6 class='fw-semi-bold fs-5'>Job Designation Location:</h6>
-                                                <p class='mx-3'>{$row['location']}</p>
+                                                <p class='mx-3'>{$row['branch']}</p>
                                             </div>
                                             <div class='col-md-6'>
                                                 <h6 class='fw-semi-bold fs-5'>Job Employment Type:</h6>
@@ -151,7 +152,6 @@
     <?php
     include("./ApplyModal.php");
     ?>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 

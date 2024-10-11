@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $message = "";
 
                 // Redirect after successful form submission
-                header("Location: ../Jobpage.php?msg=Application Submitted Successfully");
+                header("Location: ../ApplicantStatus.php?msg=Application Submitted Successfully");
                 exit;
             } else {
                 $errorMessage = "Invalid query: " . $connection->error;

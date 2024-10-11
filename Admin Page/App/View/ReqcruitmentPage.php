@@ -55,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="container-fluid">
             <div class="d-flex justify-content-end mx-lg-5 gap-2">
                 <button type="button" class="btn btn-md text-white" style="background-color: #003c3c;" data-bs-toggle="modal" data-bs-target="#CreateJobPost">Post Job</button>
-                <a href="../../../JobPage/Jobpage.php" class="btn btn-info">View</a>
             </div>
             <!--Alert Message for error and successMessage-->
             <?php
@@ -64,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <!-- Job Offers Section -->
             <section>
-                <div class="container my-5 bg-light">
+                <div class="container my-4 bg-light">
                     <div class="row">
                         <h1 class="text-center fw-bold fs-3 my-3">Company Current Job Offers:</h1>
                     </div>
@@ -99,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     <div class='modal-dialog modal-dialog-centered'>
                                                         <div class='modal-content'>
                                                             <div class='modal-header'>
-                                                                 <h5 class='modal-title' id='editJobPostLabel'>Edit Job</h5>
+                                                                 <h5 class='modal-title fw-bold fs-5' id='editJobPostLabel'>Edit Job ?</h5>
                                                                 <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                                                             </div>
                                                             <form method='POST' action='../Dao/Reqcruitement/EditJobPost.php'>
@@ -118,10 +117,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                                         <textarea class='form-control' name='qualification'>{$row['qualification']}</textarea>
                                                                     </div>
 
-                                                                    <div class='form-group mb-3'>
-                                                                        <label class='col-form-label'>Location</label>
-                                                                        <input type='text' class='form-control' name='location' value='{$row['location']}'>
-                                                                    </div>
+                                                        <div class='mb-2'>
+                                                            <label for='branch' class='form-label'>Branch</label>
+                                                             <select class='form-select' name='branch' required>
+                                                                <option value='' disabled>Select a branch</option>";
+
+                            // Fetch branchess from the database
+                            $sql_dept = "SELECT * FROM branches ORDER BY name ASC";
+                            $result_dept = $connection->query($sql_dept);
+
+                            if ($result_dept) {
+                                while ($dept_row = $result_dept->fetch_assoc()) {
+                                    $selected = ($dept_row['name'] == $row['branches']) ? 'selected' : '';
+                                    echo "<option value='{$dept_row['name']}' $selected>{$dept_row['name']}</option>";
+                                }
+                            } else {
+                                echo "<option value=''>Error loading branches</option>";
+                            }
+
+                            echo "
+                                                            </select> 
+                                                        </div>
                                                                     <!-- Salary Range Inputs (Min and Max Salary) -->
                                                                     <div class='form-group mb-3'>
                                                                         <label class='col-form-label'>Salary Range</label>
@@ -143,7 +159,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                                 </div>
                                                                 </div>
                                                                 <div class='modal-footer'>
-                                                                    <button type='button' class='btn btn-danger' data-bs-dismiss='modal'>Cancel</button>
+                                                                    <button type='button' class='btn btn-outline-secondary' data-bs-dismiss='modal'>Cancel</button>
                                                                     <button type='submit' class='btn btn-primary'>Update</button>
                                                                 </div>
                                                             </form>

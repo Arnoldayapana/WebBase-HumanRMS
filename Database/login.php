@@ -57,10 +57,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['redirect_to'] = "./Admin Page/App/View/AdminDashboard.php";
                 break;
         }
-        header("Location: ./index.php");
+        header("Location: ../login.php");
     } else {
         $_SESSION['login_error'] = "Username or password incorrect";
-        header("Location: ./index.php");
+        header("Location: ../login.php");
     }
     exit();
 }
