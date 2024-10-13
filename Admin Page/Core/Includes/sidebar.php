@@ -147,7 +147,7 @@
         <div class="modal-content" style="width: 400px;">
             <h5>Are you sure you want to logout?</h5>
             <button class="btn btn-secondary" onclick="hideModal()">Cancel</button>
-            <a href="../../../login.php" class="btn" style="background: #003c3c; color: #fff; font-weight: 600;" id=" confirmLogout">Logout</a>
+            <a href="../../../index.php" class="btn" style="background: #003c3c; color: #fff; font-weight: 600;" id=" confirmLogout">Logout</a>
         </div>
     </div>
 

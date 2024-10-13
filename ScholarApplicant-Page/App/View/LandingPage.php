@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!--Nav-->
     <nav class="navbar navbar-expand-lg navbar-light bg-gradient bg-opacity-75" style="background-color: #003c3c;">
         <div class="container d-flex mb-1">
-            <a class="navbar-brand text-white align-text-center fw-bolder fs-5" href="../../../login.php">
+            <a class="navbar-brand text-white align-text-center fw-bolder fs-5" href="../../../index.php">
                 SEDP Simbag Sa Pag-Asenso Inc.
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container ">
             <nav aria-label="breadcrumb" class="d-flex">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../../../login.php">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../../../index.php">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Scholarship Landing Pages</li>
                 </ol>
                 <div class="ms-auto m-2">
