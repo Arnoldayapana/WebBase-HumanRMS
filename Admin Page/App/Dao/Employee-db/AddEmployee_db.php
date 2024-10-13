@@ -7,6 +7,7 @@ $username = "";
 $email = "";
 $ContactNumber = "";
 $department = "";
+$branch = "";
 $password = "";
 $confirm_password = "";
 $usertype = "";
@@ -16,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $ContactNumber = $_POST['ContactNumber'];
     $department = $_POST['department'];
+    $branch = $_POST['branch'];
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
     $usertype = $_POST['usertype'];
@@ -27,14 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     } else {
         // Validation of form fields
-        if (empty($username) || empty($email) || empty($ContactNumber) || empty($department) || empty($password) || empty($confirm_password)) {
+        if (empty($username) || empty($email) || empty($ContactNumber) || empty($department) || empty($branch) || empty($password) || empty($confirm_password)) {
         } elseif ($password != $confirm_password) {
             header("Location: ../../View/Employee.php?error_msg=Passwords do not match. Please ensure both password fields are identical.");
             exit;
         } else {
             // Prepare SQL query with prepared statements to avoid SQL injection
-            $stmt = $connection->prepare("INSERT INTO employees (username, email, ContactNumber, department, password,usertype) VALUES (?, ?, ?, ?, ?,?)");
-            $stmt->bind_param("ssssss", $username, $email, $ContactNumber, $department, $password, $usertype);
+            $stmt = $connection->prepare("INSERT INTO employees (username, email, ContactNumber, department, branch, password,usertype) VALUES (?, ?, ?, ?, ?,?,?)");
+            $stmt->bind_param("sssssss", $username, $email, $ContactNumber, $department, $branch, $password, $usertype);
 
             if ($stmt->execute()) {
                 // Reset form values after successful submission
@@ -42,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $email = "";
                 $ContactNumber = "";
                 $department = "";
+                $branch = "";
                 $password = "";
                 $confirm_password = "";
 

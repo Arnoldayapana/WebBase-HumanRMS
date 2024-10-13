@@ -52,8 +52,6 @@ $successMessage = "";
                         <th>EMAIL</th>
                         <th>SCHOOL</th>
                         <th>CONTACT</th>
-                        <th>GRADE LEVEL</th>
-                        <th>ADMISSION DATE</th>
                         <th>OPERATIONS</th>
                     </tr>
                 </thead>
@@ -80,8 +78,6 @@ $successMessage = "";
                             <td>$row[email]</td>
                             <td>$row[school]</td>
                             <td>$row[contact]</td>
-                            <td>$row[GradeLevel]</td>
-                            <td>$row[applied_date]</td>
                             <td>
                                 <!-- Edit Button (Opens Modal) -->
                                     <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#$modalId'>

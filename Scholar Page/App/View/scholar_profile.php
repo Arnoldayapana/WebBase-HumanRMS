@@ -1,16 +1,16 @@
 <?php
-$title = 'Scholar Compliance';
-$page = 'compliance';
+$title = 'Scholar Profile | SEDP HRMS';
+$page = 'scholar profile';
 include('../../Core/Includes/header.php');
 ?>
 
-<div class="main-container shadow-lg p-5" style="margin: 5rem 7% 0;">
+<div class="main-container shadow-sm p-4" style="margin: 5.5rem 7% 0; background-color: #f0f9f9;">
     <div class="row justify-content-center">
         <div class="col-md-3 d-flex justify-content-center align-items-center">
-            <img src="../../Public/Assets/Images/profile.jpg" alt="Scholar Profile Picture" class="img-fluid rounded-circle shadow-lg" style="width: 200px; height: 200px; object-fit: cover;">
+            <img src="../../Public/Assets/Images/profile.jpg" alt="Scholar Profile Picture" class="img-fluid rounded-circle shadow" style="width: 200px; height: 200px; object-fit: cover;">
         </div>
         <div class="col-md-9 d-flex flex-column justify-content-center">
-            <h2 class="font-weight-bold text-dark" style="font-family: ''">Jerick Navales</h2>
+            <h2 class="font-weight-bold text-dark">Jerick Navales</h2>
             <h5 class="text-muted">Scholar</h5>
         </div>
     </div>

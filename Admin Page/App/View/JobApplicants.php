@@ -82,7 +82,7 @@ $applicantStatus = isset($_GET['status']) ? $_GET['status'] : '';
                 <tbody>
                     <?php
                     // SQL query for fetching applicants
-                    $sql = "SELECT a.applicant_id, a.name, a.email, a.contact, a.status, a.applied_date, a.message, j.title
+                    $sql = "SELECT a.applicant_id, a.name, a.email, a.contact, a.status, a.applied_date, a.message, a.resume, j.title
                             FROM applicants a
                             JOIN job j ON a.job_id = j.job_id";
 
@@ -168,8 +168,9 @@ $applicantStatus = isset($_GET['status']) ? $_GET['status'] : '';
                                             <div class='col-md-4'>
                                                 <h1 class='fs-6 fw-semi-bold'>File Uploaded :</h1>
                                                 <img src='../../Public/Assets/Images/registration.png' alt='img' class='img-fluid' style='max-width: 100%; height: auto;'>
+                                                <small>{$row['resume']}</small>
                                                 <div class='mt-3'>
-                                                    <button class='btn btn-primary'>Download</button>
+                                                    <a href='download.php?file=<?php echo urlencode{$row['resume']}; ?>' class='btn btn-primary'>Download</a>
                                                 </div>
                                             </div>
 

@@ -10,7 +10,7 @@
                 Are you sure you want to delete this Department?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-outline-secondary me-2" data-bs-dismiss="modal">Cancel</button>
                 <form id="deleteForm" method="POST" action="../Dao/Department-db/DeleteDepartment-db.php">
                     <!-- Use hidden input to pass Department_id -->
                     <input type="hidden" id="department_id" name="department_id" value="">

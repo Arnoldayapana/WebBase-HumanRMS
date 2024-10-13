@@ -16,7 +16,7 @@ include('../../Core/Includes/header.php');
         <div class="container-fluid shadow p-3 mb-5 bg-body-tertiary rounded-4">
             <h3 class="fw-bold fs-3">Compliances</h3>
             <hr style="padding-bottom: 1.5rem;">
-            <div class="d-flex mt">
+            <div class="d-flex mt" id="compliance-content">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6">
@@ -133,6 +133,16 @@ include('../../Core/Includes/header.php');
             </div>
 
             <br>
+            <style>
+                #compliance-content {
+                    max-height: 600px;
+                    /* Set the maximum height */
+                    overflow-y: auto;
+                    /* Enable vertical scrolling */
+                }
+            </style>
+
+
 
         </div>
         <?php

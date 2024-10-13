@@ -51,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     do {
         if (empty($recipient_id) || empty($name) || empty($email) || empty($school) || empty($contact) || empty($GradeLevel) || empty($branch)) {
             $errorMessage = "all the field are required";
+            header("location:../View/recipients.php?error_msg=$errorMessage");
             break;
         }
         $sql = "UPDATE recipient SET name = '$name', email = '$email', school = '$school', contact = '$contact', GradeLevel = '$GradeLevel' , branch = '$branch'" .
@@ -60,12 +61,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         if (!$result) {
             $errorMessage = "Invalid query: " . $connection->error;
+            header("location:../View/recipients.php?error_msg=$errorMessage");
             break;
         }
 
         $successMessage = "recipient Updated Succefuly!";
-
-        header("location:../View/recipients.php");
+        header("location:../View/recipients.php?msg=$successMessage");
         exit;
     } while (false);
 }

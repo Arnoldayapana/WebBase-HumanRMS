@@ -17,7 +17,7 @@ $content = "";
                 <label for="content">What's on your mind?</label>
             </div>
             <div class="d-flex flex-row-reverse me-2">
-                <button type="submit" class="btn btn-primary">Post</button>
+                <button type="submit" class="btn text-white btn-md" style="background-color: #003c3c;">Post</button>
             </div>
         </form>
     </div>

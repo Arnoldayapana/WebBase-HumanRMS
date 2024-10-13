@@ -18,14 +18,36 @@
             background-color: #f0f0f0;
             font-family: 'Poppins', sans-serif;
         }
+
+        .qualifications-header {
+            padding: 15px;
+            font-weight: bold;
+            text-align: left;
+            width: 250px;
+            border-radius: 12px;
+        }
+
+        .qualification-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .qualification-item i {
+            color: #28a745;
+            font-size: 1.5rem;
+            margin-right: 10px;
+            margin-left: 10px;
+            padding: 2px;
+        }
     </style>
 </head>
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-gradient bg-opacity-75" style="background-color: #003c3c;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-gradient bg-opacity-75 fixed-top" style="background-color: #003c3c; ">
         <div class="container d-flex mb-1">
-            <a class="navbar-brand text-white align-text-center fw-bolder fs-5" href="../index.php">
+            <a class="navbar-brand text-white align-text-center fw-bolder fs-5" href="../login.php">
                 SEDP Simbag Sa Pag-Asenso Inc.
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
@@ -34,12 +56,12 @@
         </div>
     </nav>
 
-    <div class="container bg-light my-2 shadow rounded">
+    <div class="container bg-light my-3 shadow rounded mt-5">
         <div class="row">
-            <nav aria-label="breadcrumb" class="my-2 d-flex">
+            <nav aria-label="breadcrumb" class="my-2 mt-4 d-flex">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Job-Offers</li>
+                    <li class="breadcrumb-item"><a href="../login.php">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Job LandingPage</li>
                 </ol>
                 <div class="ms-auto m-2">
                     <a href="./Form/SEDP-Employee Form.docx" class="btn text-white fw-500" style="background-color: #003c3c;" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">Download File</a>
@@ -47,18 +69,70 @@
 
             </nav>
             <div class="text-center pt-2">
-                <h1 class="fw-bold fs-3 fs-sm-5">Join Our Team and Shape the Future with Us!</h1>
-                <img src="../Assets/Images/hiring.png" alt="Hiring Image" class="img-fluid rounded shadow my-4" style="height: auto; width: 700px;">
-                <p class="lead text-muted p-2 m-2 my-5 mx-5">
+                <img src="../Assets/Images/job-poster.png" alt="Hiring Image" class="img-fluid rounded shadow my-4" style="height: auto; width: 800px;">
+                <p class="lead text-muted p-2 m-2 my-3 mx-5">
                     At <span class="fs-4 fw-bold">SEDP Simbag Sa Pag-Asenso Inc</span>, we foster talent, embrace innovation, and drive success.
                     Join us today and be part of a company that values and invests in your future.
                 </p>
             </div>
         </div>
     </div>
+    <div class="container bg-light my-3 shadow rounded mt-5">
+        <div class="row">
+            <div class="col-md-12 m-4">
+                <div class="qualifications-header">
+                    <h4 class="fw-bold">QUALIFICATIONS:</h4>
+                </div>
+                <div class="row qualifications-container">
+                    <!-- Left Column -->
+                    <div class="col-md-6">
+                        <div class="qualification-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span class="text-dark fs-5 fw-bold">Undergraduate/graduate of any business-related courses</span>
+                        </div>
+                        <div class="qualification-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span class="text-dark fs-5 fw-bold">Physically fit to do field work</span>
+                        </div>
+                        <div class="qualification-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span class="text-dark fs-5 fw-bold">Willing to be assigned in any SEDP area of Operations</span>
+                        </div>
+                        <div class="qualification-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span class="text-dark fs-5">Work experience as an Account Officer is an advantage</span>
+                        </div>
+                        <div class="qualification-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span class="text-dark fs-5">Computer literate</span>
+                        </div>
+                    </div>
+                    <!-- Right Column -->
+                    <div class="col-md-6">
+                        <div class="qualification-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span class="text-dark fs-5">Good communication skills</span>
+                        </div>
+                        <div class="qualification-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span class="text-dark fs-5">Driving skills with driver's license is an advantage</span>
+                        </div>
+                        <div class="qualification-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span class="text-dark fs-5">Has positive work attitude, adaptable, and able to work well under pressure</span>
+                        </div>
+                        <div class="qualification-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span class="text-dark fs-5">Preferably from Camarines Sur, Sorsogon, and Masbate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section>
-        <div class="container mb-5 mt-4 bg-light p-3">
+        <div class="container mb-5 mt-5 bg-light p-3">
             <div class="row">
                 <h1 class="text-center fw-bold fs-3 my-5">Our Company is Currently Looking for the Following:</h1>
             </div>
@@ -147,6 +221,28 @@
             </div>
         </div>
     </section>
+
+    <!--Footer-->
+    <div class="container-fluid bg-dark text-center text-light mt-5" style="padding: 10px 0;">
+        <div class="footer-content" style="min-height: 100px; line-height: 30px;">
+            <p class="mb-2">&copy; 2024 Your Organization. All Rights Reserved.</p>
+
+            <ul class="list-inline mb-2">
+                <li class="list-inline-item"><a href="https://sedp.ph/about-us/" class="text-light">About Us</a></li>
+                <li class="list-inline-item"><a href="https://sedp.ph/services/" class="text-light">Services</a></li>
+                <li class="list-inline-item"><a href="/privacy-policy" class="text-light">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="/terms-of-service" class="text-light">Terms of Service</a></li>
+            </ul>
+
+            <p class="mb-2">Contact Us: <a href="mailto:simbag_sedp@yahoo.com" class="text-light">simbag_sedp@yahoo.com</a></p>
+
+            <div class="social-media-links mb-2">
+                <a href="https://web.facebook.com/sedp.ph" target="_blank" class="mx-2 text-light"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/yourprofile" class="mx-2 text-light"><i class="fa fa-twitter"></i></a>
+                <a href="https://linkedin.com/in/yourprofile" class="mx-2 text-light"><i class="fa fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal for Job Application -->
     <?php

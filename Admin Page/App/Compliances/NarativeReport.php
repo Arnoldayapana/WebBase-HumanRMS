@@ -16,11 +16,11 @@ include('../../Core/Includes/header.php');
 
         <div class="container-fluid shadow p-3 mb-5 bg-body-tertiary rounded-4">
             <h3 class="fw-bold fs-4">Narrative Report</h3>
-            <hr style="padding-bottom: 1.5rem;">
+            <hr>
             <div class="row">
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end px-6">
+                <div class="d-grid d-md-flex justify-content-md-end px-6">
                     <form action="#" method="GET">
-                        <div class="input-group mb-2">
+                        <div class="input-group">
                             <input type="text" name="search" value="" class="form-control" placeholder="Search Recipient">
                             <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
                         </div>

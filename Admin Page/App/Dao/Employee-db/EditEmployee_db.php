@@ -7,6 +7,7 @@ $employee_id = "";
 $username = "";
 $email = "";
 $department = "";
+$branch = "";
 $ContactNumber = "";
 $password = "";
 
@@ -36,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $username = $row["username"];
     $email = $row["email"];
     $department = $row["department"];
+    $branch = $row["branch"];
     $ContactNumber = $row["ContactNumber"];
     $password = $row["password"];
 }
@@ -46,19 +48,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $department = $_POST['department'];
+    $branch = $_POST['branch'];
     $ContactNumber = $_POST['ContactNumber'];
     $password = $_POST['password'];
 
     // Check for empty required fields
-    if (empty($employee_id) || empty($username) || empty($email) || empty($department) || empty($ContactNumber) || empty($password)) {
+    if (empty($employee_id) || empty($username) || empty($email) || empty($department) || empty($branch) || empty($ContactNumber) || empty($password)) {
         $errorMessage = "All fields are required. Please fill out the form completely.";
         header("Location: ../../View/Employee.php?error_msg=$errorMessage");
         exit;
     }
 
     // SQL query to update employee data
-    $stmt = $connection->prepare("UPDATE employees SET username = ?, email = ?, department = ?, ContactNumber = ?, password = ? WHERE employee_id = ?");
-    $stmt->bind_param("sssssi", $username, $email, $department, $ContactNumber, $password, $employee_id);
+    $stmt = $connection->prepare("UPDATE employees SET username = ?, email = ?, department = ?, branch = ?, ContactNumber = ?, password = ? WHERE employee_id = ?");
+    $stmt->bind_param("ssssssi", $username, $email, $department, $branch, $ContactNumber, $password, $employee_id);
 
     // Execute query and check for errors
     if ($stmt->execute()) {

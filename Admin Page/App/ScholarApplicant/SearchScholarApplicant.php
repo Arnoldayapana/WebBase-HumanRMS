@@ -40,9 +40,9 @@ include("../../../Database/db.php");
                 <hr>
                 <div class="row">
                     <div class=" col-4 ms-auto me-3">
-                        <form action="SearchBranch.php" method="GET">
+                        <form action="#" method="GET">
                             <div class="input-group mb-2">
-                                <input type="text" name="search" value="" class="form-control" placeholder="Search Branch">
+                                <input type="text" name="search" value="" class="form-control" placeholder="Search Applicat">
                                 <button type="submit" class="btn btn-primary">Search</button>
                             </div>
                         </form>
@@ -57,8 +57,6 @@ include("../../../Database/db.php");
                             <th>EMAIL</th>
                             <th>SCHOOL</th>
                             <th>CONTACT</th>
-                            <th>GRADE LEVEL</th>
-                            <th>APPLIED DATE</th>
                             <th>OPERATIONS</th>
                         </tr>
                     </thead>
@@ -92,8 +90,6 @@ include("../../../Database/db.php");
                             <td>$row[email]</td>
                             <td>$row[school]</td>
                             <td>$row[contact]</td>
-                            <td>$row[GradeLevel]</td>
-                            <td>$row[applied_date]</td>
                             <td>
                                 <!-- Edit Button (Opens Modal) -->
                                     <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#$modalId'>

@@ -45,7 +45,6 @@ $errorMessage = $successMessage = "";
             <table class="table table-striped">
                 <thead class="table-primary">
                     <tr>
-                        <th>#</th>
                         <th>NAME</th>
                         <th>EMAIL</th>
                         <th>OPERATIONS</th>
@@ -68,7 +67,6 @@ $errorMessage = $successMessage = "";
 
                         echo "
                         <tr>
-                            <td>{$row['recipient_id']}</td>
                             <td>{$row['name']}</td>
                             <td>{$row['email']}</td>
                             <td>
@@ -79,7 +77,7 @@ $errorMessage = $successMessage = "";
 
                                 <div class='modal fade' id='$modalId' tabindex='-1' aria-labelledby='editRecipientLabel' aria-hidden='true'>
                                     <div class='modal-dialog modal-dialog-centered'>
-                                        <div class='modal-content'>
+                                        <div class='modal-content' style='width: 550px;'>
                                             <div class='modal-header'>
                                                 <h5 class='modal-title' id='editRecipientLabel'>Edit Recipient</h5>
                                                 <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
@@ -125,8 +123,8 @@ $errorMessage = $successMessage = "";
                                                     </div>
                                                 </div>
                                                 <div class='modal-footer'>
-                                                    <button type='button' class='btn btn-danger' data-bs-dismiss='modal'>Cancel</button>
-                                                    <button type='submit' class='btn btn-primary'>Save Changes</button>
+                                                    <button type='button' class='btn btn-outline-secondary me-2' data-bs-dismiss='modal'>Cancel</button>
+                                                    <button type='submit' class='btn btn-primary'>Update</button>
                                                 </div>
                                             </form>
                                         </div>

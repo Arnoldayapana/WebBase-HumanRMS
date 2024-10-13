@@ -1,4 +1,3 @@
-<!-- Modal for Job Application -->
 <?php
 $title = 'Job Applicant | SEDP HRMS';
 $page = 'Job Applicant';
@@ -9,12 +8,20 @@ $name = "";
 $email = "";
 $contact = "";
 $message = "";
-$applied_date = "";
+$job_id = "";
 
+// Styling for modal width
 ?>
+<style>
+    .custom-modal {
+        max-width: 600px;
+        /* Set your desired width */
+    }
+</style>
+
 <!-- Modal Add Applicants-->
 <div class="modal fade" id="JobApplicant" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered custom-modal">
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
@@ -23,7 +30,7 @@ $applied_date = "";
             </div>
 
             <!-- Modal Form -->
-            <form action="./JobApplicant-data.php/application-db.php" method="POST">
+            <form action="JobApplicant-data/sample.php" method="POST" enctype="multipart/form-data"> <!-- Added enctype -->
                 <div class="modal-body">
                     <input type="hidden" id="job_id" name="job_id">
 
@@ -32,7 +39,6 @@ $applied_date = "";
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" name="name" placeholder="Enter your name" minlength="3" maxlength="50" value="<?php echo htmlspecialchars($name); ?>" required>
                     </div>
-
                     <!-- Email Input -->
                     <div class="form-group mb-3">
                         <label for="email" class="form-label">Email</label>
@@ -43,6 +49,12 @@ $applied_date = "";
                     <div class="form-group mb-3">
                         <label for="contact" class="form-label">Contact Number</label>
                         <input type="tel" class="form-control" name="contact" placeholder="e.g., 12345678901" pattern="[0-9]{11}" inputmode="numeric" value="<?php echo htmlspecialchars($contact); ?>" maxlength="11" required>
+                    </div>
+                    <!-- File Upload Input -->
+                    <div class="form-group mb-3">
+                        <label for="resume" class="form-label">Upload Resume</label>
+                        <input type="file" class="form-control" name="resume" id="resume" accept=".pdf,.doc,.docx" required>
+                        <small class="text-muted">Accepted file formats: .pdf, .doc, .docx</small>
                     </div>
 
                     <!-- Message/Qualification Input -->

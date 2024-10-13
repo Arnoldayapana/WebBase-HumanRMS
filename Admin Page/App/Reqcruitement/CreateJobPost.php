@@ -1,7 +1,7 @@
 <!-- Modal for Creating Job Post -->
 <div class="modal fade" id="CreateJobPost" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="CreateJobPostLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
+        <div class="modal-content" style="width:600px;">
             <div class="modal-header">
                 <h5 class="modal-title fs-5 fw-bold" id="CreateJobPostLabel">Post Job ?</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -9,7 +9,7 @@
 
             <!-- Form for creating a new job post -->
             <form method="post">
-                <div class="modal-body" style="max-height: 540px; width: 580px; overflow-y: auto;">
+                <div class="modal-body" style="max-height: 540px; overflow-y: auto;">
 
                     <!-- Job Title Input -->
                     <div class="form-group mb-3">
@@ -32,7 +32,7 @@
                     <!-- Location Dropdown (with no default selection) -->
                     <div class="form-group mb-3">
                         <label for="location" class="col-form-label">Branch</label>
-                        <select required class="form-select" id="location" name="location">
+                        <select required class="form-select" id="branch" name="branch">
                             <option value="" disabled selected>Select</option> <!-- No pre-selected value -->
                             <?php
                             $sql = "SELECT * FROM branches";
@@ -74,7 +74,7 @@
 
                 <!-- Modal Footer Buttons -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-outline-secondary me-2" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-primary">Post</button>
                 </div>
             </form>

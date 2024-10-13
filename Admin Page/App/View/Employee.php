@@ -9,6 +9,7 @@ $username = "";
 $email = "";
 $ContactNumber = "";
 $department = "";
+$brach = "";
 $password = "";
 $confirm_password = "";
 $usertype = "";
@@ -87,6 +88,7 @@ $selectedDepartment = isset($_GET['department']) ? $_GET['department'] : '';
                             <th>NAME</th>
                             <th>EMAIL</th>
                             <th>DEPARTMENT</th>
+                            <th>BRANCH</th>
                             <th>CONTACT</th>
                             <th>OPERATIONS</th>
                         </tr>
@@ -120,14 +122,9 @@ $selectedDepartment = isset($_GET['department']) ? $_GET['department'] : '';
                                     <td>{$row['username']}</td>
                                     <td>{$row['email']}</td>
                                     <td>{$row['department']}</td>
+                                    <td>{$row['branch']}</td>
                                     <td>{$row['ContactNumber']}</td>
                                     <td>
-                                        <!-- View Applicant Button -->
-                                        <button type='button' class='btn btn-warning btn-sm' data-bs-toggle='modal' 
-                                            data-bs-target='#$ViewId'>
-                                            <i class='bi bi-eye'></i>
-                                        </button>
-                                        
                                         <!-- Edit Button -->
                                         <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#$modalId'>
                                             <i class='bi bi-pencil-square'></i>
@@ -185,6 +182,28 @@ $selectedDepartment = isset($_GET['department']) ? $_GET['department'] : '';
                                                                 </select>
                                                             </div>
 
+                                                            <!-- Branch -->
+                                                            <div class='mb-2'>
+                                                                <label for='branch' class='form-label'>Branch</label>
+                                                                <select class='form-select' name='branch' required>
+                                                                    <option value='' disabled>Select a Branch</option>";
+
+                                // Fetch branchs
+                                $sql_dept = "SELECT * FROM branches ORDER BY name ASC";
+                                $result_dept = $connection->query($sql_dept);
+                                if ($result_dept) {
+                                    while ($dept_row = $result_dept->fetch_assoc()) {
+                                        $selected = ($dept_row['name'] == $row['branch']) ? 'selected' : '';
+                                        echo "<option value='{$dept_row['name']}' $selected>{$dept_row['name']}</option>";
+                                    }
+                                } else {
+                                    echo "<option value=''>Error loading branchs</option>";
+                                }
+
+                                echo "
+                                                                </select>
+                                                            </div>
+
                                                             <!-- Contact Number -->
                                                             <div class='mb-2'>
                                                                 <label for='ContactNumber' class='form-label'>Contact Number</label>
@@ -203,7 +222,7 @@ $selectedDepartment = isset($_GET['department']) ? $_GET['department'] : '';
                                                             </div>
                                                         </div>
                                                         <div class='modal-footer'>
-                                                            <button type='button' class='btn btn-outline-secondary' data-bs-dismiss='modal'>Close</button>
+                                                            <button type='button' class='btn btn-outline-secondary me-2' data-bs-dismiss='modal'>Close</button>
                                                             <button type='submit' class='btn btn-primary'>Save</button>
                                                         </div>
                                                     </form>
@@ -212,8 +231,6 @@ $selectedDepartment = isset($_GET['department']) ? $_GET['department'] : '';
                                         </div>
                                     </td>
                                 </tr>";
-                                // View Modal for each applicant
-                                include('../Employee/ViewEmployeeModal.php');
                             }
                         }
                         ?>

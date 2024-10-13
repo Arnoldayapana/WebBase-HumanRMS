@@ -8,7 +8,7 @@ include('../../../Database/db.php');
 $title = "";
 $JobDescription = "";
 $qualification = "";
-$location = "";
+$branch = "";
 $min_salary = "";
 $max_salary = "";
 $EmployeeType = "";
@@ -18,18 +18,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $title = $_POST['title'] ?? '';
     $JobDescription = $_POST['JobDescription'] ?? '';
     $qualification = $_POST['qualification'] ?? '';
-    $location = $_POST['location'] ?? '';
+    $branch = $_POST['branch'] ?? '';
     $min_salary = $_POST['min_salary'] ?? '';
     $max_salary = $_POST['max_salary'] ?? '';
     $EmployeeType = $_POST['EmployeeType'] ?? '';
 
     // Validate required field
-    if (empty($title) || empty($JobDescription) || empty($qualification) || empty($location) || empty($min_salary) || empty($max_salary) || empty($EmployeeType)) {
+    if (empty($title) || empty($JobDescription) || empty($qualification) || empty($branch) || empty($min_salary) || empty($max_salary) || empty($EmployeeType)) {
         $errorMessage = "All fields are required";
     } else {
         // Insert into the database
-        $sql = "INSERT INTO job (title, JobDescription, qualification, location, min_salary, max_salary, EmployeeType) 
-                VALUES ('$title', '$JobDescription', '$qualification', '$location', '$min_salary', '$max_salary', '$EmployeeType')";
+        $sql = "INSERT INTO job (title, JobDescription, qualification, branch, min_salary, max_salary, EmployeeType) 
+                VALUES ('$title', '$JobDescription', '$qualification', '$branch', '$min_salary', '$max_salary', '$EmployeeType')";
 
         if (mysqli_query($connection, $sql)) {
             $successMessage = "New job added successfully!";
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ?>
 
             <!-- Job Offers Section -->
-            <section>
+            <section id="content">
                 <div class="container my-4 bg-light">
                     <div class="row">
                         <h1 class="text-center fw-bold fs-3 my-3">Company Current Job Offers:</h1>
@@ -191,6 +191,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ?>
     </div>
 </div>
+<style>
+    #content {
+        max-height: 700px;
+        /* Set the maximum height */
+        overflow-y: auto;
+        /* Enable vertical scrolling */
+    }
+</style>
 
 <!-- Bootstrap JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

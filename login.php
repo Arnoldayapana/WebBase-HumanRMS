@@ -188,20 +188,19 @@ include('Database/login.php');
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #003c3c;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
             </button>
             <div class="collapse navbar-collapse flex-row-reverse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="Scholar Page/App/scholarship-criteria.php">SCHOLAR</a>
+                        <a class="nav-link text-white fw-bold" aria-current="page" href="ScholarApplicant-Page/App/View/LandingPage.php">SCHOLAR</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./JobPage/Jobpage.php">JOB</a>
+                        <a class="nav-link text-white fw-bold" href="./JobPage/Jobpage.php">JOB</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ABOUT</a>
+                        <a class="nav-link text-white fw-bold" href="https://sedp.ph/about-us/">ABOUT</a>
                     </li>
                 </ul>
             </div>
@@ -217,20 +216,20 @@ include('Database/login.php');
                 <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="6000">
-                    <img src="./login/loginBg.jpg" class="d-block w-100 c-image" alt="...">
+                <div class="carousel-item active" data-bs-interval="4000">
+                    <img src="Include/image/loginBg.jpg" class="d-block w-100 c-image" alt="...">
                 </div>
-                <div class="carousel-item" data-bs-interval="6000">
-                    <img src="./login/1.webp" class="d-block w-100 c-image" alt="...">
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="Include/image/1.webp" class="d-block w-100 c-image" alt="...">
                 </div>
-                <div class="carousel-item" data-bs-interval="6000">
-                    <img src="./login/2.webp" class="d-block w-100 c-image" alt="...">
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="Include/image/2.webp" class="d-block w-100 c-image" alt="...">
                 </div>
-                <div class="carousel-item" data-bs-interval="6000">
-                    <img src="./login/3.webp" class="d-block w-100 c-image" alt="...">
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="Include/image/3.webp" class="d-block w-100 c-image" alt="...">
                 </div>
-                <div class="carousel-item" data-bs-interval="6000">
-                    <img src="./login/4.webp" class="d-block w-100 c-image" alt="...">
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="Include/image/4.webp" class="d-block w-100 c-image" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev" style="display: none;">
@@ -249,7 +248,7 @@ include('Database/login.php');
     <!-- Login Form inside the carousel -->
     <div class="login-container text-center ">
         <div class="login-header d-flex mb-4 align-items-center">
-            <img src="./login/loginLogo.png" alt="SEDP Logo" id="logo"> <!-- Replace with actual logo -->
+            <img src="Include/image/loginLogo.png" alt="SEDP Logo" id="logo"> <!-- Replace with actual logo -->
             <div class="H-side">
                 <h2 class="fw-bold">SEDP</h2>
                 <p>Simbag sa Pag-Asenso Inc.</p>

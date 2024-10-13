@@ -23,17 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Step 3: Reset AUTO_INCREMENT to the correct value
             $sql_reset_ai = "ALTER TABLE recipient AUTO_INCREMENT = 1";
             $connection->query($sql_reset_ai);
-
-            $successMessage = "recipient deleted and IDs reordered successfully!";
+            // Redirect back to the recipient page
+            $successMessage = "recipient deleted successfully!";
+            header("location:../../View/recipients.php?msg=$successMessage");
+            exit;
         } else {
             $errorMessage = "Failed to delete the recipient.";
+            header("location:../View/recipients.php?error_msg= $errorMessage");
         }
 
         $stmt->close();
         $connection->close();
-
-        // Redirect back to the recipient page
-        header("location:../../View/recipients.php");
-        exit;
     }
 }

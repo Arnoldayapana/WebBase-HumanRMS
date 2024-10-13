@@ -24,7 +24,7 @@
     <!--Nav-->
     <nav class="navbar navbar-expand-lg navbar-light bg-gradient bg-opacity-75" style="background-color: #003c3c;">
         <div class="container d-flex mb-1">
-            <a class="navbar-brand text-white align-text-center fw-bolder fs-5" href="../index.php">
+            <a class="navbar-brand text-white align-text-center fw-bolder fs-5" href="../login.php">
                 SEDP Simbag Sa Pag-Asenso Inc.
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">

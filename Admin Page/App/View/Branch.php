@@ -57,7 +57,7 @@ $name = "";
                         // Loop through each row
                         while ($row = $result->fetch_assoc()) {
                             $modalId = "editBranchModal" . $row['branch_id'];
-                            $ViewId = "viewBranchModal" . $row['branch_id'];
+                            $viewId = "viewBranch" . $row['branch_id'];
 
                             echo "
                             <tr>
@@ -65,12 +65,13 @@ $name = "";
                                 <td>{$row['name']}</td>
                                 <td>{$row['created_date']}</td>
                                 <td>
-                                    <!-- View Applicant Button -->
-                                        <button type='button' class='btn btn-warning btn-sm' data-bs-toggle='modal' 
-                                            data-bs-target='#$ViewId'>
-                                            <i class='bi bi-eye'></i>
-                                        </button>
 
+                                    <!-- view Button -->
+                                    <a href='../Branches/ViewBranch.php?branch_id={$row['branch_id']}' class='btn btn-warning btn-sm'>
+    <i class='bi bi-eye'></i>
+</a>
+
+                                
                                     <!-- Edit Button -->
                                     <button type='button' class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#$modalId'>
                                         <i class='bi bi-pencil-square'></i>
@@ -109,8 +110,6 @@ $name = "";
                                 </td>
                             </tr>
                             ";
-                            // View Modal for each applicant
-                            include('../Branches/ViewBranch.php');
                         }
                     } else {
                         echo "<tr><td colspan='4'>No branches found</td></tr>";

@@ -11,9 +11,9 @@ include("../../../Database/database.php");
     <title><?php echo isset($title) ? $title : 'Default Title'; ?></title>
 
     <link rel="shortcut icon" href="../../../Assets/Images/SEDPfavicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="../../Public/Assets/Css/header.css">
-    <link rel="stylesheet" href="../../Public/Assets/Css/dashboard.css">
+    <link rel="stylesheet" href="../../Public/Assets/Css/navbar.css">
     <link rel="stylesheet" href="../../Public/Assets/Css/employee_home.css">
+    <link rel="stylesheet" href="../../Public/Assets/Css/calendar.css">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -23,11 +23,7 @@ include("../../../Database/database.php");
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../Public/Assets/Css/navbar.css">
-
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
 
     <head>
@@ -71,16 +67,13 @@ include("../../../Database/database.php");
             padding-bottom: -10px;">SEDP HRMS</h4>
                         </a>
                     </li>
-                    <li class="home <?php echo ($page === 'home') ? 'active' : ''; ?>">
+                    <li class="home <?php echo ($page === 'employee home') ? 'active' : ''; ?>">
                         <a href="../../App/View/employee_home.php">Home</a>
-                    </li>
-                    <li class="event_tracker <?php echo ($page === 'scholarcompliance') ? 'active' : ''; ?>">
-                        <a href="../../App/View/event_tracker.php">Event Tracker</a>
                     </li>
                 </ul>
                 <div class="profile">
-                    <a href="../../App/View/notification.php"><i class="fa-solid fa-bell"></i></a>
-                    <img src="../../Public/Assets/Images/SEDPLogo.png" alt="Profile" id="profile-img">
+                    <a href="#" id="notification-link"><i class="fa-solid fa-bell"></i></a>
+                    <img src="../../Public/Assets/Images/profile.jpg" alt="Profile" id="profile-img">
                     <i class="fa-solid fa-angle-down" id="dropdown-toggle" style="color: #fff;"></i>
                     <div class="dropdown-menu" id="dropdown-menu">
                         <a href="../../App/View/employee_profile.php"><i class="fa-solid fa-user"></i>&nbsp;Profile</a>
@@ -90,6 +83,29 @@ include("../../../Database/database.php");
                 </div>
             </nav>
         </header>
+
+        <!-- Notification Modal -->
+        <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="notificationModalLabel">Notifications</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">Notification 1</li>
+                            <li class="list-group-item">Notification 2</li>
+                            <li class="list-group-item">Notification 3</li>
+                            <!-- Add more notifications as needed -->
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script>
             // Dropdown toggle functionality
@@ -110,7 +126,17 @@ include("../../../Database/database.php");
             hamburger.addEventListener('click', function() {
                 hamburger.classList.toggle('active');
             });
+
+            // Notification modal toggle functionality
+            const notificationIcon = document.querySelector('.fa-bell');
+            notificationIcon.addEventListener('click', function() {
+                const notificationModal = new bootstrap.Modal(document.getElementById('notificationModal'));
+                notificationModal.show();
+            });
         </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
     </body>
 

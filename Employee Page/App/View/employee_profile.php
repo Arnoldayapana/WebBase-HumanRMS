@@ -1,10 +1,10 @@
 <?php
 $title = 'Employee Profile | SEDP HRMS';
-$page = 'employee_profile';
+$page = 'eployee profile';
 include('../../Core/Includes/header.php');
 ?>
 
-<div class="main-container shadow-sm p-4" style="margin: 5.5rem 7% 0;">
+<div class="main-container shadow-sm p-4" style="margin: 5.5rem 7% 0; background-color: #f0f9f9;">
     <div class="row justify-content-center">
         <div class="col-md-3 d-flex justify-content-center align-items-center">
             <img src="../../Public/Assets/Images/profile.jpg" alt="Scholar Profile Picture" class="img-fluid rounded-circle shadow" style="width: 200px; height: 200px; object-fit: cover;">
